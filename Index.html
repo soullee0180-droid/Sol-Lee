@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연구자 포트폴리오 | Name</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // 다크모드 클래스 기반 활성화
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        // 학술적인 느낌의 버건디(Burgundy) 포인트 컬러
+                        academicAccent: '#800000', 
+                        academicAccentDark: '#ef4444',
+                        // 다크모드 배경 (딥 다크 그레이)
+                        darkBg: '#18181b', 
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 부드러운 화면 전환 효과 및 기본 설정 */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* 고정 네비게이션으로 인해 스크롤 시 콘텐츠가 가려지는 현상 방지 */
+        section {
+            scroll-margin-top: 5rem;
+        }
+
+        /* 미니멀한 링크 밑줄 애니메이션 */
+        .hover-underline {
+            position: relative;
+            text-decoration: none;
+        }
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .hover-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-darkBg dark:text-gray-200 font-sans leading-relaxed selection:bg-gray-200 dark:selection:bg-gray-700">
+
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-darkBg/90 backdrop-blur-sm z-50 border-b border-gray-100 dark:border-gray-800 transition-colors">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center text-sm">
+            <div class="font-serif font-bold tracking-wide hidden md:block">
+                <a href="#home">S. Lee</a>
+            </div>
+            
+            <div class="flex space-x-5 items-center w-full md:w-auto justify-center md:justify-end">
+                <a href="#bio" class="hover-underline text-gray-600 dark:text-gray-300">Bio</a>
+                <a href="#publications" class="hover-underline text-gray-600 dark:text-gray-300">Publications</a>
+                <a href="#timeline" class="hover-underline text-gray-600 dark:text-gray-300">Timeline</a>
+                <a href="#archive" class="hover-underline text-gray-600 dark:text-gray-300">Archive</a>
+
+                <button id="theme-toggle" class="ml-4 text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none font-mono" aria-label="Toggle Dark Mode">
+                    [Dark]
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 pt-32 pb-24">
+
+        <section id="home" class="mb-20">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-6 border-b border-gray-200 dark:border-gray-700 pb-8">
+                <div>
+                    <h1 class="font-serif text-4xl md:text-5xl font-bold mb-3 tracking-tight text-gray-900 dark:text-gray-50">Sol Lee</h1>
+                    <p class="text-md text-gray-500 dark:text-gray-400">Seoul Science High School, Seoul, South Korea</p>
+                </div>
+                
+                <div class="flex flex-wrap md:flex-col gap-3 md:gap-1 text-sm md:text-right font-mono">
+                    <a href="mailto:email@example.com" class="text-academicAccent dark:text-academicAccentDark hover:underline">soullee0180@gmail.com</a>
+                    <a href="#" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">@sol_lee_ier</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="bio" class="mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-10 gap-10 items-start">
+                <div class="md:col-span-7 order-2 md:order-1 text-gray-700 dark:text-gray-300 space-y-4 font-light">
+                    <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Biography</h2>
+                    <p>안녕하세요. SMS, Spanning Tree, MO 등 다양한 수학 동아리 운영에 참여하고 있으며, 학교 홍보단 장입니다. 응용수학과 AI 관련 논의 또한 언제나 환영합니다.</p>
+                    <p>Hello, I am Sol Lee, a president of SSHS ambassador, and I am contributing to various math clubs such as SMS, Spanning Tree, and MO. I am passionate about applied mathematics and artificial intelligence and reltated talks are always welcome.</p>
+                </div>
+                <div class="md:col-span-3 order-1 md:order-2 flex justify-center md:justify-end">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/BIO.jpg" alt="Profile" class="w-48 md:w-full max-w-[200px] aspect-[3/4] object-cover rounded-sm border border-slate-200 dark:border-gray-700">
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="mb-24">
+            <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Published Papers</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-light">
+                과제 연구 결과물을 포함한 논문 모음입니다.
+            </p>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-light">
+                Research papers including project results.
+            </p>
+
+            <hr class="my-12 border-slate-200 dark:border-gray-700">
+
+            <div class="mb-10">                
+                <ul class="space-y-6">
+                    <li class="pl-0">
+                        <div class="font-semibold text-gray-900 dark:text-gray-100 text-base mb-1">
+                            Prime Factorization of linear combination of factorials
+                        </div>
+                        <div class="text-gray-700 dark:text-gray-300 text-sm mb-1 font-light">
+                            SeungJun Lee*, <span class="underline decoration-gray-400 font-medium">Sol Lee*</span>
+                        </div>
+                        <div class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                            <i>Seoul Science High School</i>, 2024.
+                        </div>
+                        <div class="flex space-x-3 text-xs font-mono">
+                            <a href="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/Prime%20Factorization%20of%20linear%20combination%20of%20factorials.pdf" download class="text-academicAccent dark:text-academicAccentDark hover:underline">[PDF]</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <hr class="my-12 border-slate-200 dark:border-gray-700">
+
+                <ul class="space-y-6">
+                    <li class="pl-0">
+                        <div class="font-semibold text-gray-900 dark:text-gray-100 text-base mb-1">
+                            Size of Graph Restricted Direction Set on Polynomial Parametric Curves
+                        </div>
+                        <div class="text-gray-700 dark:text-gray-300 text-sm mb-1 font-light">
+                            SeungJun Lee*, <span class="underline decoration-gray-400 font-medium">Sol Lee*</span>
+                        </div>
+                        <div class="text-gray-600 dark:text-gray-400 text-sm mb-2">
+                            <i>Seoul Science High School</i>, 2025.
+                        </div>
+                        <div class="flex space-x-3 text-xs font-mono">
+                            <a href="Size of Graph Restricted Direction Set on Polynomial Parametric Curves.pdf" download class="text-academicAccent dark:text-academicAccentDark hover:underline">[PDF]</a>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+
+
+<section id="timeline" class="mb-20">
+    <div class="flex flex-col gap-44">
+
+            <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Timeline</h2>
+
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">영재발굴단 (Finding Genius)</h3>
+                        <p class="text-lg font-medium">2018.12.19</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">영재발굴단 (Finding Genius)</span> is a tv show that features talented children of various backgrounds in variety of fields. I was a guest for this show in 2018.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://programs.sbs.co.kr/culture/findinggenius/clip/55588/22000310907" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">VIDEO</a>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FindingGenius.jpg" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Photo from Finding Genius: TV Show
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">KOI 2020 Gold</h3>
+                        <p class="text-lg font-medium">2020.9.21</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KOI</span> is the Korean Olympiad in Informatics, a competitive programming contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KOI 2020</span> and achieved a gold medal.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://koi.or.kr/" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KOI</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">KMO 2020 Gold</h3>
+                        <p class="text-lg font-medium">2020.11.21</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KMO</span> is the Korean Mathematics Olympiad, a competitive mathematics contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KMO 2020</span> and achieved a gold medal.</p>
+
+                        <p>I got gold medal for KMO 2020 ~ 2026, so I won't indicate KMO from now on.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://www.kmo.or.kr/main.html" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KMO</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">KOI 2021 Silver, Bronze</h3>
+                        <p class="text-lg font-medium">2021.6.22, 2021.7.27</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KOI</span> is the Korean Olympiad in Informatics, a competitive programming contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KOI 2021</span> and achieved a silver and bronze medal.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://koi.or.kr/" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KOI</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">FKMO 2022 HM</h3>
+                        <p class="text-lg font-medium">2022.5.17</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO</span> is the Final Korean Mathematics Olympiad, a competitive mathematics contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO 2022</span> and achieved a honor of mention medal.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://www.kmo.or.kr/main.html" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KMO</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">KOI 2022 Silver, Silver</h3>
+                        <p class="text-lg font-medium">2022.5.24, 2022.7.25</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KOI</span> is the Korean Olympiad in Informatics, a competitive programming contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KOI 2022</span> and achieved a silver and silver medal.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://koi.or.kr/" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KOI</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">FKMO 2023 EA, IMO candidate</h3>
+                        <p class="text-lg font-medium">2023.5.22</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO</span> is the Final Korean Mathematics Olympiad, a competitive mathematics contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO 2023</span> and achieved an excellence award medal.</p>
+
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">IMO</span> is the International Mathematical Olympiad, a competitive mathematics contest for high school students worldwide. I was a candidate for the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">IMO</span> team 2023.</p>
+
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://www.kmo.or.kr/main.html" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KMO</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">MOP 2023</h3>
+                        <p class="text-lg font-medium">2023.6.4~6.22</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">MOP</span> is 3-week intensive problem solving camp held at the Carnegie Mellon University to help high school students prepare for math olympiads, especially the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">International Mathematical Olympiad</span>. While the program is free to participants, invitations are limited to the top finishers on the USAMO. Especially, there are few <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">international participants</span> max two selected from each country.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://artofproblemsolving.com/wiki/index.php/Mathematical_Olympiad_Summer_Program?srsltid=AfmBOoo9wJoJZgDhE_JZcAljWQQyGKQF4j0NsV9u-xpmlvU9XqOKwvu-" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">MORE ABOUT MOP</a>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/MOP2023.webp" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Photo from MOP 2023: Carnegie Mellon University campus
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">FKMO 2024 EA, IMO candidate</h3>
+                        <p class="text-lg font-medium">2024.4.9</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO</span> is the Final Korean Mathematics Olympiad, a competitive mathematics contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO 2024</span> and achieved an excellence award medal.</p>
+
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">IMO</span> is the International Mathematical Olympiad, a competitive mathematics contest for high school students worldwide. I was a candidate for the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">IMO</span> team 2024.</p>
+
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://www.kmo.or.kr/main.html" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KMO</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">FKMO 2024 HM</h3>
+                        <p class="text-lg font-medium">2025.4.14</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO</span> is the Final Korean Mathematics Olympiad, a competitive mathematics contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO 2025</span> and achieved an honor of mention medal.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://www.kmo.or.kr/main.html" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KMO</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Ultimate Guide to Olympiad</h3>
+                        <p class="text-lg font-medium">2024.7 ~ ?</p>
+                        <p>I started a project <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">Ultimate Guide to Olympiad</span>, realizing poor documentation for olympiad preparation open sources and my passion on olympiad community. Overleaf Latex documentation will be uploaded in both <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">archive</span> and below. (I use the nickname Lleeya in many online communities)</p>
+                    
+                        <p>(Current State) Ultimate Guide to Olympiad program is on a puase state from 2025.11 due to other urgent works. Currently about 60% of aimed problems are recorded, while composition overall needs some retouch.</p>
+                        <p>(Overview) I have ran an actual short lecture series using this documentation. Progress seems essential in number theory while the documents in combinatorics and geometry seems relatively fine.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://www.overleaf.com/read/yqxhdncnsmrb#34fb86" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">U-GUIDE</a>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="UGUIDE.png" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Cover photo for the documentation
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">ISEF 2025</h3>
+                        <p class="text-lg font-medium">2025.5.11~5.15</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">ISEF</span> is the International Science and Engineering Fair, a premier science competition for high school students worldwide. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">ISEF 2025</span> as a presenter for my research project. You can find my work and presentation materials below at <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">archive</span>.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://isef.net/project/math025t-linear-combination-of-factorials" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">ISEF project</a>
+                        </div>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://www.societyforscience.org/isef/regeneron-isef-2025/" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">ISEF 2025</a>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/ISEF.jpg" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Photo from ISEF 2025: Columbus, Ohio
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">SSHS AMBASSADORs</h3>
+                        <p class="text-lg font-medium">2025.10 ~ 2026.?</p>
+                        <p>I ran <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">SSHS Ambassadors</span>, a student led organization that promotes <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">SSHS</span> to outsiders and visitors from 2025 to 2026. Aside from alot of hanf-off work, practical work, I opend an application for the visitors and friends in our group.</p>
+                    
+                        <p>(Current State) Ambassador application is under development. About 30% complete. Most of the features implemented is viewable from admin-mode, not available to the public.</p>
+
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://github.com/sshsabassadors-coder/sshs-ambassadors" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">AMBASSADORs</a>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/AMBASSADORS.jpg" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Photo from tour guide work: SSHS Ambassadors
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">KOI 2025 Bronze</h3>
+                        <p class="text-lg font-medium">2025.7.9</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KOI</span> is the Korean Olympiad in Informatics, a competitive programming contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KOI 2025</span> and achieved a bronze medal.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://koi.or.kr/" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KOI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Talk - On Riemann Hurwitz Formula</h3>
+                        <p class="text-lg font-medium">2025.12.26 ~ 12.27</p>
+                        <p>Me and a few of my friends studied and made a presentation on the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">Riemann Hurwitz Formula</span> at a mathematics conference happening in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">KSA</span>. Details can be found in the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">archive</span></p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://en.wikipedia.org/wiki/Riemann%E2%80%93Hurwitz_formula" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">RH Formula</a>
+                        </div>
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://ksa.hs.kr/" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KSA</a>
+                        </div>
+
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/RHFormula.png" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Photo from Riemann Hurwitz Formula talk: KSA conference
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Talk - On Triangle Mutation</h3>
+                        <p class="text-lg font-medium">2025.12.26 ~ 12.27</p>
+                        <p>I made a blog and taught a few students about basics of <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">triangle mutation</span> few of related research does not rely on computer-using methods, but apply elementary reasonings. This paper by <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">Emeric Gioan</span> is a good case, and I gave a short talk about it with a blog post.</p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://mathmomomo.blogspot.com/2025/12/triangle-mutation.html" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">BLOG</a>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="Trianglemutation.png" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Example photo from Triangle Mutation blog post
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Talk - On Project Research</h3>
+                        <p class="text-lg font-medium">2026.3.30</p>
+                        <p>Me and my friend awarded a best prize on project research related to the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">Elekes Ronyai type problem</span>. As a result of the research, we presented our work and some tips at <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">SSHS</span> Seminar. Precise ppt and project reseacrh can be find in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">archive</span></p>
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/A%20survey%20of%20Elekes%20Ronyai%20type%20problems.pdf" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">EY Survey</a>
+                        </div>
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://sshs.sen.hs.kr/" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">SSHS</a>
+                        </div>
+
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR0.jpg" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Photo from Riemann Hurwitz Formula talk: KSA conference
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">FKMO 2026 EA, IMO candidate</h3>
+                        <p class="text-lg font-medium">2026.4.14</p>
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO</span> is the Final Korean Mathematics Olympiad, a competitive mathematics contest for high school students in Korea. I participated in <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">FKMO 2026</span> and achieved an Excellence award medal.</p>
+
+                        <p><span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">IMO</span> is the International Mathematical Olympiad, a competitive mathematics contest for high school students worldwide. I was a candidate for the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">IMO</span> team 2026.</p>
+
+
+                        <div class="flex gap-4 pt-4 font-mono text-sm">
+                            <a href="https://www.kmo.or.kr/main.html" target="_blank" class="border border-gray-800 dark:border-gray-200 px-5 py-2.5 font-bold hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-colors cursor-pointer">KMO</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="text-gray-700 dark:text-gray-300 font-light space-y-4">
+                        <h3 class="font-serif text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">2026 Science Goldenbell Host</h3>
+                        <p class="text-lg font-medium">2026.4.30</p>
+                        <p>Me and my friends hosted the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">2026 Science Goldenbell</span> event. The event was named the "Turned off switch" or <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">"The switch game"</span>. It is basically a game of math in the shape of the famous squid game. I was the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">chief organizer</span>.</p>
+                        
+                        <p>To search the files and problems used in the Science Goldenbell, reference the <span class="text-academicAccent dark:text-academicAccentDark hover:underline cursor-pointer">archive</span></p>
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden border border-slate-200 dark:border-gray-700">
+                        <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG6.jpg" alt="Assembly talk" class="w-full h-auto block"> 
+                        <div class="absolute bottom-0 left-0 right-0 bg-black/75 text-white p-4 text-sm">
+                            Example photo from Science Goldenbell Host
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </section>
+
+
+
+
+
+        <section id="archive" class="mb-24">
+            <h2 class="font-serif text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Archive</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-light">
+                항목을 클릭하면 하단에 링크나 자료가 나타납니다. 상세한 내용이나 설명은 Timeline을 참고해주세요. Archive 내용은 시간순이 아님에 주의해주세요.
+            </p>
+
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-8 font-light">
+                Clicking an item will show related links or materials below. For detailed descriptions, please refer to the Timeline section. Note that the archive items are not in chronological order.
+            </p>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <button data-archive-target="project-1" class="archive-tab-btn border border-slate-200 dark:border-gray-800 rounded-sm p-4 text-left bg-slate-50 dark:bg-gray-800/20 font-serif text-md font-semibold text-gray-900 dark:text-gray-100 transition-all hover:bg-slate-100 dark:hover:bg-gray-800/50">
+                    <span class="block text-xs font-mono text-gray-400 dark:text-gray-500 font-light mb-1">Project 01</span>
+                    정보올림피아드 수상 및 대회 참가 기록
+                </button>
+                <button data-archive-target="project-2" class="archive-tab-btn border border-slate-200 dark:border-gray-800 rounded-sm p-4 text-left bg-white dark:bg-transparent font-serif text-md font-semibold text-gray-900 dark:text-gray-100 transition-all hover:bg-slate-50 dark:hover:bg-gray-800/30">
+                    <span class="block text-xs font-mono text-gray-400 dark:text-gray-500 font-light mb-1">Project 02</span>
+                    수학올림피아드 국대후보 및 FKMO 수상 기록
+                </button>
+                <button data-archive-target="project-3" class="archive-tab-btn border border-slate-200 dark:border-gray-800 rounded-sm p-4 text-left bg-white dark:bg-transparent font-serif text-md font-semibold text-gray-900 dark:text-gray-100 transition-all hover:bg-slate-50 dark:hover:bg-gray-800/30">
+                    <span class="block text-xs font-mono text-gray-400 dark:text-gray-500 font-light mb-1">Project 03</span>
+                    RH Formula Talk 프레젠테이션 자료
+                </button>
+
+               <button data-archive-target="project-4" class="archive-tab-btn border border-slate-200 dark:border-gray-800 rounded-sm p-4 text-left bg-white dark:bg-transparent font-serif text-md font-semibold text-gray-900 dark:text-gray-100 transition-all hover:bg-slate-50 dark:hover:bg-gray-800/30">
+                    <span class="block text-xs font-mono text-gray-400 dark:text-gray-500 font-light mb-1">Project 04</span>
+                    Talk on Project Research 프레젠테이션 자료 (2026)
+                </button>
+
+
+                <button data-archive-target="project-5" class="archive-tab-btn border border-slate-200 dark:border-gray-800 rounded-sm p-4 text-left bg-white dark:bg-transparent font-serif text-md font-semibold text-gray-900 dark:text-gray-100 transition-all hover:bg-slate-50 dark:hover:bg-gray-800/30">
+                    <span class="block text-xs font-mono text-gray-400 dark:text-gray-500 font-light mb-1">Project 04</span>
+                    사이언스 골든벨 관련 자료 (2026)
+                </button>
+
+
+
+            </div>
+
+            <div id="archive-content-area" class="border border-slate-200 dark:border-gray-800 rounded-sm p-6 bg-white dark:bg-transparent transition-colors">
+                <div id="project-1" class="archive-content flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-full md:w-2/5 flex flex-col gap-3 relative overflow-hidden border border-slate-100 dark:border-gray-700">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI1.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI2.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI2.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI3.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI3.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI4.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI4.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI5.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI5.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI6.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI6.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI7.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI7.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI8.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI8.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI9.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI9.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI10.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI10.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI11.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI11.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI12.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/KOI12.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+
+                    </div>
+                    <div class="w-full md:w-3/5 flex flex-col h-full">
+                        <h3 class="font-serif text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">정보올림피아드 수상 및 대회 참가 기록</h3>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-3">2020 - 2026 | 개인</div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 font-light mb-5 leading-relaxed">
+                            정보올림피아드 대회 참가 및 수상 기록의 캡처본입니다. 
+                        </p>
+                    </div>
+                </div>
+
+                <div id="project-2" class="archive-content hidden flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-full md:w-2/5 flex flex-col gap-3 relative overflow-hidden border border-slate-100 dark:border-gray-700">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FKMO2022.png" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FKMO2022.png"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FKMO2023.png" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FKMO2023.png"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/IMO2023.png" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/IMO2023.png"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FKMO2024.png" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FKMO2024.png"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/IMO2024.png" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/IMO2024.png"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FKMO2025.png" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/FKMO2025.png"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/imo2026.png" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/imo2026.png"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/fkmo2026.png" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/fkmo2026.png"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+
+                    </div>
+                    <div class="w-full md:w-3/5 flex flex-col h-full">
+                        <h3 class="font-serif text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">수학올림피아드 국대후보 및 FKMO 수상 기록</h3>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-3">2020 ~ 2026 | 개인</div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 font-light mb-5 leading-relaxed">
+                            지금까지 수상한 국대후보 및 FKMO 실적들에 대해서 기록했습니다. KMO는 2020년부터 거의 2차 금상이라 따로 표기는 하지 않았습니다.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div id="project-3" class="archive-content hidden flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-full md:w-2/5 relative overflow-hidden border border-slate-100 dark:border-gray-700">
+                        <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/RHFormula.png" 
+                            data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/RHFormula.png"
+                            alt="Project 3 Image" 
+                            class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    </div>
+                    <div class="w-full md:w-3/5 flex flex-col h-full">
+                        <h3 class="font-serif text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">Riemann Hurwitz Formula에 대한 발표</h3>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-3">2025.11 | 공동발표자 : 이현준, 이승준</div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 font-light mb-5 leading-relaxed">
+                            Riemann Hurwitz Formula에 대한 발표 자료입니다. 이 발표는 KSA에서 열린 수학 컨퍼런스에서 진행되었으며, 발표 내용과 관련된 논문과 슬라이드를 포함하고 있습니다. 당시 개념에 대한 이해도가 낮아 발표 자료가 완성도가 높지는 않지만, 관심 있는 분들은 참고하실 수 있습니다.
+                        </p>
+                        <div class="flex space-x-4 border-t border-slate-100 dark:border-gray-800 pt-4 mt-auto">
+                            <a href="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/RHFormula.pdf" download class="text-xs font-mono text-academicAccent dark:text-academicAccentDark hover:underline transition-colors">[RH Formula 발표자료 (PDF)]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="project-4" class="archive-content hidden flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-full md:w-2/5 flex flex-col gap-3 relative overflow-hidden border border-slate-100 dark:border-gray-700">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR0.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR0.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR1.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR2.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR2.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR3.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/PR3.jpg"
+                        alt="Project 4 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    </div>
+                    <div class="w-full md:w-3/5 flex flex-col h-full">
+                        <h3 class="font-serif text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">Talk on Project Research 프레젠테이션 자료 (2026)</h3>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-3">2026.3 | 공동발표자 : 이승준</div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 font-light mb-5 leading-relaxed">
+                            과제연구, 특히 수학 분야와 관련된 파일이 주로 있는 프레젠테이션 파일입니다. 학생들에게 발표하는 용도라 재미를 추구하였습니다. 관심 있는 분들은 프레젠테이션, 연구 논문을 참고하실 수 있습니다. (논문은 다른 Archive에 있는 것과 동일합니다.)
+                        </p>
+                        <div class="flex space-x-4 border-t border-slate-100 dark:border-gray-800 pt-4 mt-auto">
+                            <a href="과제연구발표4.pptx" download class="text-xs font-mono text-academicAccent dark:text-academicAccentDark hover:underline transition-colors">[프레젠테이션 자료 (PPT)]</a>
+                        </div>
+                        <div class="flex space-x-4 border-t border-slate-100 dark:border-gray-800 pt-4 mt-auto">
+                            <a href="Size of Graph Restricted Direction Set on Polynomial Parametric Curves.pdf" download class="text-xs font-mono text-academicAccent dark:text-academicAccentDark hover:underline transition-colors">[연구 논문 (PDF)]</a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div id="project-5" class="archive-content hidden flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-full md:w-2/5 flex flex-col gap-3 relative overflow-hidden border border-slate-100 dark:border-gray-700">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG2.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG2.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+                    <img src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg" 
+                        data-full-src="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCG1.jpg"
+                        alt="Project 5 Image" 
+                        class="w-full h-44 object-cover cursor-zoom-in hover:opacity-80 transition-opacity duration-300 project-img mix-blend-multiply dark:mix-blend-normal">
+
+                    </div>
+                    <div class="w-full md:w-3/5 flex flex-col h-full">
+                        <h3 class="font-serif text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">사이언스골든벨 관련 자료 (2026)</h3>
+                        <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-3">2026.5 | 이솔 및 팀원 아홉 명</div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 font-light mb-5 leading-relaxed">
+                            사이언스골든벨 대회에서 사용된 문제들과 자료들이 담긴 프레젠테이션 파일입니다. 대회는 "Turned off switch" 또는 "The switch game"이라는 이름으로 진행되었습니다. 관심 있는 분들은 프레젠테이션 자료를 참고하실 수 있습니다.
+                        </p>
+                        <div class="flex space-x-4 border-t border-slate-100 dark:border-gray-800 pt-4 mt-auto">
+                            <a href="https://akmcarkurkdkgsrxocvq.supabase.co/storage/v1/object/public/assets/SCGFinal.zip" download class="text-xs font-mono text-academicAccent dark:text-academicAccentDark hover:underline transition-colors">[최종 자료 총집합 파일 (ZIP)]</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer class="border-t border-slate-200 dark:border-gray-800 py-8 text-center text-xs text-gray-500 dark:text-gray-400 font-mono mt-10">
+        <p>Last updated: <span id="last-updated">May 2026</span></p>
+        <p class="mt-2">&copy; <span id="current-year">2026</span> Gildong Hong. All rights reserved.</p>
+    </footer>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-gray-900/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-6 right-8 text-gray-300 hover:text-white font-mono text-sm tracking-widest transition-colors focus:outline-none">
+            [CLOSE X]
+        </button>
+        <img id="lightbox-img" src="" alt="Enlarged Project Image" class="max-w-full max-h-[90vh] object-contain shadow-2xl rounded-sm border border-gray-700">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. 다크모드 토글
+            const html = document.documentElement;
+            const themeToggleBtn = document.getElementById('theme-toggle');
+
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+                themeToggleBtn.textContent = '[Light]';
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    localStorage.theme = 'light';
+                    themeToggleBtn.textContent = '[Dark]';
+                } else {
+                    html.classList.add('dark');
+                    localStorage.theme = 'dark';
+                    themeToggleBtn.textContent = '[Light]';
+                }
+            });
+
+            // 2. 날짜 업데이트
+            const date = new Date();
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById('last-updated').textContent = `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+            document.getElementById('current-year').textContent = date.getFullYear();
+
+            // 3. 사진 확대 모달(Lightbox) 로직
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+            
+            // 동적 탭 전환 대응을 위해 단일 위임 방식 대신 상시 캐치 로직 유지
+            function initLightboxEvents() {
+                const projectImgs = document.querySelectorAll('.project-img');
+                projectImgs.forEach(img => {
+                    // 중복 등록 방지를 위해 기존 리스너 제거 처리를 대신함 (클론하지 않고 안전하게 다룸)
+                    img.removeEventListener('click', openLightbox);
+                    img.addEventListener('click', openLightbox);
+                });
+            }
+
+            function openLightbox(e) {
+                const highResSrc = e.target.getAttribute('data-full-src') || e.target.src;
+                lightboxImg.src = highResSrc;
+                lightbox.classList.remove('hidden');
+                setTimeout(() => {
+                    lightbox.classList.remove('opacity-0');
+                    lightbox.classList.add('opacity-100');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+
+            // 모달 닫기 함수 (Fade-out 효과)
+            function closeLightbox() {
+                lightbox.classList.remove('opacity-100');
+                lightbox.classList.add('opacity-0');
+                
+                // 트랜지션 시간(300ms)이 지난 후 hidden 처리하여 화면에서 제거
+                setTimeout(() => {
+                    lightbox.classList.add('hidden');
+                    lightboxImg.src = ''; // 이미지 소스 초기화
+                    document.body.style.overflow = ''; // 스크롤 복구
+                }, 300);
+            }
+
+            // [CLOSE] 텍스트 클릭 시 닫기
+            closeBtn.addEventListener('click', closeLightbox);
+            
+            // 이미지 밖의 어두운 배경 영역 클릭 시 닫기
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // ESC 키보드 누를 시 닫기 (접근성 향상)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                    closeLightbox();
+                }
+            });
+
+            // 초기 라이트박스 이벤트 바인딩
+            initLightboxEvents();
+
+
+            // 4. 아카이브 동적 인터랙션 (탭 시스템) 추가
+            const tabButtons = document.querySelectorAll('.archive-tab-btn');
+            const contentBlocks = document.querySelectorAll('.archive-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-archive-target');
+
+                    // 버튼 스타일 제어 (선택된 것 강조, 나머지는 평범하게)
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-slate-50', 'dark:bg-gray-800/20');
+                        btn.classList.add('bg-white', 'dark:bg-transparent');
+                    });
+                    button.classList.remove('bg-white', 'dark:bg-transparent');
+                    button.classList.add('bg-slate-50', 'dark:bg-gray-800/20');
+
+                    // 설명 블록 제어 (타겟만 활성화, 나머지는 hidden)
+                    contentBlocks.forEach(block => {
+                        if (block.id === targetId) {
+                            block.classList.remove('hidden');
+                        } else {
+                            block.classList.add('hidden');
+                        }
+                    });
+
+                    // 탭이 전환되더라도 새로 나타난 이미지에 확대 리스너가 작동하도록 보장
+                    initLightboxEvents();
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
